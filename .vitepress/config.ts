@@ -23,7 +23,7 @@ export default defineConfig({
             { text: '主页', link: '/' },
             { text: '分类', link: '/pages/category' },
             { text: '标签', link: '/pages/tags' },
-            { text: '于我', link: '/pages/about' }
+            { text: '于我2', link: '/pages/about' }
             // { text: 'Airene', link: 'http://airene.net' }  -- External link test
         ],
         search: {
