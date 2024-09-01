@@ -1,7 +1,7 @@
 ---
 date: 2024-08-31
 title: 优秀博客网站
-category: blog ref
+category: Blog 参考
 tags:
     - blog
 description: 一些优秀的博客网站,供参考
@@ -15,3 +15,6 @@ description: 一些优秀的博客网站,供参考
 
 ## lovchung 博客
 1. [Build & Deploy](<https://www.lovchun.com/posts/>)
+
+## Edwin 博客
+1. [Vite架构](<http://edwinest.com/blog/modulebundler/vite/structure.html>)
