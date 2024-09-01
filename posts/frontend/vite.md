@@ -34,9 +34,9 @@ vite 主要是用于开发环境，提高我们在开发环境构建项目的速
 > - **源码** 通常包含一些并非直接是 JavaScript 的文件，需要转换（例如 JSX，CSS 或者 Vue/Svelte 组件），时常会被编辑。同时，并不是所有的源码都需要同时被加载（例如基于路由拆分的代码模块）。 Vite 以 原生 ESM 方式提供源码。这实际上是让浏览器接管了打包程序的部分工作：Vite 只需要在浏览器请求源码时进行转换并按需提供源码。根据情景动态导入代码，即只在当前屏幕上实际使用时才会被处理。
 
 
-![An image](../pic/bundle.image)
+![An image](../pic/bundle.png)
 
-![An image](../pic/native-ems.image)
+![An image](../pic/native-ems.png)
 
 ## Vite 架构解析
 
@@ -48,5 +48,5 @@ Vite 底层所深度使用的两个构建引擎：**Esbuild**和 **Rollup**
 
 一般来说，node_modules 依赖的大小动辄几百 MB 甚至上 GB ，会远超项目源代码，相信大家都深有体会。如果这些依赖直接在 Vite 中使用，会出现一系列的问题，这些问题我们在依赖预构建的小节已经详细分析过，主要是 ESM 格式的兼容性问题和海量请求的问题。 总而言之，对于第三方依赖，需要在应用启动前使用 Esbuild 进行**打包**并且转换为 **ESM 格式**。
 
-![An image](../pic/esbuild.awebp)
+![An image](../pic/esbuild.png)
 
