@@ -44,9 +44,22 @@ Vite 底层所深度使用的两个构建引擎：**Esbuild**和 **Rollup**
 
 ### Esbuild
 
-作为 Bundler 打包工具，进行依赖预构建
+#### 作为 Bundler 打包工具，进行依赖预构建
 
 一般来说，node_modules 依赖的大小动辄几百 MB 甚至上 GB ，会远超项目源代码，相信大家都深有体会。如果这些依赖直接在 Vite 中使用，会出现一系列的问题，这些问题我们在依赖预构建的小节已经详细分析过，主要是 ESM 格式的兼容性问题和海量请求的问题。 总而言之，对于第三方依赖，需要在应用启动前使用 Esbuild 进行**打包**并且转换为 **ESM 格式**。
 
 ![An image](../pic/esbuild.png)
 
+#### 作为 TS 和 JSX 编译工具，进行单文件编译
+
+在依赖预构建阶段， Esbuild 作为 **Bundler** 的角色存在。而在 TS(X)/JS(X) 单文件编译上面，Vite 也使用 Esbuild 进行语法转译，也就是将 Esbuild 作为 **Transformer** 来用。
+
+![An image](../pic/esbuild-pipeline.png)
+
+#### Rollup 构建
+
+Rollup 在 Vite 中的重要性一点也不亚于 Esbuild，它既是 Vite 用作生产环境打包的核心工具，也直接决定了 Vite 插件机制的设计。
+
+# 生产环境 Bundle
+
+虽然 ESM 已经得到众多浏览器的原生支持，但生产环境做到完全 no-bundle 也不行，会有网络性能问题。 所以，为了在生产环境中也能取得优秀的产物性能，**Vite 默认选择在生产环境中利用 Rollup 打包，并基于 Rollup 本身成熟的打包能力进行扩展和优化**。
