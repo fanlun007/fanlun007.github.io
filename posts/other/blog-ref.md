@@ -18,3 +18,6 @@ description: 一些优秀的博客网站,供参考
 
 ## Edwin 博客
 1. [Vite架构](<http://edwinest.com/blog/modulebundler/vite/structure.html>)
+
+## chendapeng 博客
+1. [vite 独有 hooks](<http://learn.bythewayer.com/node/vite/4>)
