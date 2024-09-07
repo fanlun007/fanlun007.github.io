@@ -50,21 +50,41 @@ const svg = textToSVG.getSVG('hello');
 console.log(svg);
 ```
 
-可尝试如下
-```javaacript
-// An example for loading font asynchronously.
+# string-to-svg 使用, browser 环境
 
-// First argument is URL on web browsers, but it is file path on Node.js.
-TextToSVG.load('/fonts/Noto-Sans.otf', function(err, textToSVG) {
-    const svg = textToSVG.getSVG('hello');
-    console.log(svg);
-});
-```
+::: code-group
 
-string-to-svg 这个包用 ts 写，但是用于node的代码有点问题，__dirname ? -_-||
-```javascript
-function loadFont(fontPath) {
-  const path = join(__dirname, fontPath);
-  return loadSync(path);
+```javascript [index.vue]
+<template>
+    <div class="mt-[50px] w-[80%]">
+        <ElButton @click="click2">test</ElButton>
+        <span v-html="svgHtml" />
+    </div>
+</template>
+
+<script>
+import { getSVG, loadFont } from "string-to-svg"
+
+import font2 from "./ipag.ttf"
+const svgHtml = ref()
+
+const click2 = async () => {
+  console.log("check2")
+
+  fetch(font2)
+    .then((response) => response.arrayBuffer())
+    .then(async (font) => {
+      console.log("Font loaded:", font)
+      const fontParse = await loadFont(font)
+      console.log("Font loaded:", font)
+      const attributes = { fill: "red", stroke: "black" }
+      const options = { font: fontParse, x: 0, y: 0, fontSize: 72, anchor: "top", attributes }
+      svgHtml.value = getSVG("hello", options)
+      console.log(svgHtml.value)
+    })
+    .catch((error) => console.error("Error loading font:", error))
 }
+</script>
 ```
+
+:::
