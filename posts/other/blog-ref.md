@@ -21,3 +21,7 @@ description: 一些优秀的博客网站,供参考
 
 ## chendapeng 博客
 1. [vite 独有 hooks](<http://learn.bythewayer.com/node/vite/4>)
+
+## keycloak  
+1. umi-plugin-keycloak
+2. https://umi-ckeditor5.vercel.app/
