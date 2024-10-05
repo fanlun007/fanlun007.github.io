@@ -7,6 +7,9 @@ tags:
 description: Chromium 历史版本离线安装包
 ---
 
+# uptown
+https://google-chrome.cn.uptodown.com/mac/versions
+
 # Chromium 历史版本离线安装包 - 下载方法
 
 下载地址（非官网，但文件地址是官方的）：https://vikyd.github.io/download-chromium-history-version/
